@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>  User  list page</title>
+</head>
+
+<body>
+<table  border="1" cellspacing="0">
+    <legend>用户列表</legend>
+    <thead>
+     <tr>
+         <th>id</th>
+         <th>userName</th>
+         <th>password</th>
+         <th>phone</th>
+     </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="user: ${userList}">
+        <th scope="row" th:text="${user.userId}"> </th>
+        <td><a href="@{user/update/{userId}(userId=${user.userId})}" th:text="${user.userName}"></a> </td>
+        <td th:text="${user.password}"></td>
+        <td th:text ="${user.phone}"></td>
+    </tr>
+
+    </tbody>
+
+
+
+</table>
+
+</body>
+</html>
